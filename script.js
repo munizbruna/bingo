@@ -45,11 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
         sorteadosElement.style.display = 'block';
         secondaryListElement.innerHTML = secondaryList.slice(-6).map(value => `<div class="numero">${value}</div>`).join('');
     };
-    
-    /* const updateSecondaryList = () => {
-        sorteadosElement.style.display = 'block';
-        secondaryListElement.innerHTML = secondaryList.map(value => `<div class="numero">${value},</div>`).join('');
-    }; */
 
     const saveToLocalStorage = () => {
         localStorage.setItem('secondaryList', JSON.stringify(secondaryList));
