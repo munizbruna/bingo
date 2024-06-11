@@ -1,0 +1,169 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background-image: url('Background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+#executando {
+    display: none;
+}
+
+.welcome {
+    color: white;
+    background-image: url('bingo.avif');
+    background-size: cover;
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 40vh;
+    padding: 40px;
+    width: 50vw;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#start {
+
+    transition-duration: 0.4s;
+    background: rgba(7, 7, 7, 0.05);
+    border: 2px solid red;
+    color: red;
+    font-size: 16px;
+    border-radius: 8px;
+    width: 100px;
+    padding: 8px;
+}
+
+#start:hover {
+    background-color: red;
+    color: white;
+}
+
+.geral {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 64px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    display: none;
+    padding: 20px;
+
+}
+
+header {
+    height: 12vh;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+header img {
+    height: 50px;
+}
+
+
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+
+}
+
+.current-value {
+    font-size: 300px;
+    margin: 20px;
+    padding: 50px;
+    background-color: red;
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+    width: 400px;
+    height: 450px;
+
+}
+
+.value-input {
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 150px;
+}
+
+.insert-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.secondary-list {
+    font-size: 50px;
+    max-width: 80vw;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.numero {
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+    margin: 10px;
+    background-color: rgb(242, 184, 184);
+    border-radius: 20px;
+}
+
+.main {
+    background: rgba(252, 250, 250, 0.9);
+    display: flex;
+    width: 80vw;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+
+}
+
+.ultimos {
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
