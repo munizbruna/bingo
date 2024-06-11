@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const start = document.getElementById('start')
     const welcome = document.getElementById('welcome')
     const executando = document.getElementById('executando')
+    const container = document.getElementById('container')
 
 
     const startBingo = () => {
@@ -17,18 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     start.addEventListener('click', startBingo)
-   
+
 
     let secondaryList = JSON.parse(localStorage.getItem('secondaryList')) || [];
     const reinicia = () => {
-        console.log('chamei')
-        localStorage.removeItem('secondaryList'); 
+        localStorage.removeItem('secondaryList');
         localStorage.removeItem('currentValue');
         location.reload();
 
     }
     reset.addEventListener('click', reinicia);
     const insertValue = () => {
+        container.style.display = 'flex'
         const newValue = valueInputElement.value.trim();
         if (newValue) {
             if (currentValueElement.textContent) {
@@ -42,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const updateSecondaryList = () => {
-        sorteadosElement.style.display = 'block';
+        sorteadosElement.style.display = 'flex';
         secondaryListElement.innerHTML = secondaryList.slice(-6).map(value => `<div class="numero">${value}</div>`).join('');
     };
 
