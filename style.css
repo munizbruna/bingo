@@ -40,7 +40,7 @@ body {
     align-items: center;
 }
 
-#start {
+#start, #reset, .insert-button:hover {
 
     transition-duration: 0.4s;
     background: rgba(7, 7, 7, 0.05);
@@ -52,7 +52,7 @@ body {
     padding: 8px;
 }
 
-#start:hover {
+#start:hover, #reset:hover, .insert-button {
     background-color: red;
     color: white;
 }
@@ -105,15 +105,15 @@ header img {
 }
 
 .current-value {
-    font-size: 300px;
+    font-size: 250px;
     margin: 20px;
     padding: 50px;
     background-color: red;
     color: white;
     border-radius: 20px;
     text-align: center;
-    width: 400px;
-    height: 450px;
+   /*  width: 500px;
+    height: 450px; */
 
 }
 
@@ -122,12 +122,17 @@ header img {
     padding: 10px;
     margin-bottom: 10px;
     width: 150px;
+    border: none;
+    border-radius: 8px;
 }
 
 .insert-button {
     font-size: 16px;
     padding: 10px 20px;
     margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+
 }
 
 .secondary-list {
@@ -141,8 +146,8 @@ header img {
 }
 
 .numero {
-    width: 100px;
-    height: 100px;
+   /*  width: 150px;
+    height: 100px; */
     padding: 20px;
     margin: 10px;
     background-color: rgb(242, 184, 184);

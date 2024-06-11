@@ -29,8 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     reset.addEventListener('click', reinicia);
     const insertValue = () => {
-        container.style.display = 'flex'
+        container.style.display = 'flex';
         const newValue = valueInputElement.value.trim();
+
+        // Verificação do comprimento da string
+        if (newValue.length > 3) {
+            alert('Verifique o valor inserido. Limite de 3 digitos');
+            return; // Interrompe a execução da função se o valor for maior que 3 caracteres
+        }
+
         if (newValue) {
             if (currentValueElement.textContent) {
                 secondaryList.push(currentValueElement.textContent);
@@ -41,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             valueInputElement.value = '';
         }
     };
+
 
     const updateSecondaryList = () => {
         sorteadosElement.style.display = 'flex';
