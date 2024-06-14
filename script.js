@@ -9,7 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const welcome = document.getElementById('welcome')
     const executando = document.getElementById('executando')
     const container = document.getElementById('container')
-
+    const geral = document.getElementById('geral')
+/*     const animDiv = document.getElementById('curent-value');
+ */
 
     const startBingo = () => {
         welcome.style.display = 'none';
@@ -30,8 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
     reset.addEventListener('click', reinicia);
     const insertValue = () => {
         container.style.display = 'flex';
+        geral.style.justifyContent = 'space-between'
         const newValue = valueInputElement.value.trim();
-
+    
         // Verificação do comprimento da string
         if (newValue.length > 3) {
             alert('Verifique o valor inserido. Limite de 3 digitos');
@@ -47,12 +50,19 @@ document.addEventListener('DOMContentLoaded', () => {
             currentValueElement.textContent = newValue;
             valueInputElement.value = '';
         }
+
+        /* animDiv.classList.remove('current-value'); */
+       // animDiv.classList.add('full-screen');
+     //   setTimeout(() => {
+       //     animDiv.classList.remove('full-screen');
+            /* animDiv.classList.add('current-value') */
+     //   }, 5000); // 5 segundos
     };
 
 
     const updateSecondaryList = () => {
         sorteadosElement.style.display = 'flex';
-        secondaryListElement.innerHTML = secondaryList.slice(-6).map(value => `<div class="numero">${value}</div>`).join('');
+        secondaryListElement.innerHTML = secondaryList.slice(-3).map(value => `<div class="numero">${value}</div>`).join('');
     };
 
     const saveToLocalStorage = () => {
