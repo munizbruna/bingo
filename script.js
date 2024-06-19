@@ -9,36 +9,42 @@ document.addEventListener('DOMContentLoaded', () => {
     const welcome = document.getElementById('welcome')
     const executando = document.getElementById('executando')
     const container = document.getElementById('container')
+    const input = document.getElementById('input')
+    const numbersContainer = document.getElementById('numbers-container')
     const geral = document.getElementById('geral')
-/*     const animDiv = document.getElementById('curent-value');
- */
+    const fechar = document.getElementById('fechar')
 
     const startBingo = () => {
         welcome.style.display = 'none';
         executando.style.display = 'flex';
-
     };
 
-    start.addEventListener('click', startBingo)
-
+    start.addEventListener('click', startBingo);
 
     let secondaryList = JSON.parse(localStorage.getItem('secondaryList')) || [];
+
     const reinicia = () => {
         localStorage.removeItem('secondaryList');
         localStorage.removeItem('currentValue');
         location.reload();
-
-    }
+    };
     reset.addEventListener('click', reinicia);
+
+    const getCategory = (value) => {
+        if (value <= 15) return 'B';
+        if (value <= 30) return 'I';
+        if (value <= 45) return 'N';
+        if (value <= 60) return 'G';
+        return 'O';
+    };
+
     const insertValue = () => {
         container.style.display = 'flex';
-        geral.style.justifyContent = 'space-between'
-        const newValue = valueInputElement.value.trim();
-    
-        // Verificação do comprimento da string
-        if (newValue.length > 3) {
-            alert('Verifique o valor inserido. Limite de 3 digitos');
-            return; // Interrompe a execução da função se o valor for maior que 3 caracteres
+        const newValue = parseInt(valueInputElement.value.trim(), 10);
+
+        if (isNaN(newValue) || newValue < 1 || newValue > 75) {
+            alert('Por favor, insira um número válido entre 1 e 75.');
+            return;
         }
 
         if (newValue) {
@@ -47,22 +53,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateSecondaryList();
                 saveToLocalStorage();
             }
-            currentValueElement.textContent = newValue;
+            currentValueElement.textContent = `${getCategory(newValue)} ${newValue}`;
             valueInputElement.value = '';
         }
-
-        /* animDiv.classList.remove('current-value'); */
-       // animDiv.classList.add('full-screen');
-     //   setTimeout(() => {
-       //     animDiv.classList.remove('full-screen');
-            /* animDiv.classList.add('current-value') */
-     //   }, 5000); // 5 segundos
     };
-
 
     const updateSecondaryList = () => {
         sorteadosElement.style.display = 'flex';
-        secondaryListElement.innerHTML = secondaryList.slice(-3).map(value => `<div class="numero">${value}</div>`).join('');
+        secondaryListElement.innerHTML = secondaryList.slice(-3).map(value => {
+            const num = parseInt(value.split(' ')[1], 10);
+            return `<div class="numero">${value}</div>`;
+        }).join('');
     };
 
     const saveToLocalStorage = () => {
@@ -77,24 +78,48 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Carregar o valor atual do localStorage
     const savedCurrentValue = localStorage.getItem('currentValue');
     if (savedCurrentValue) {
         currentValueElement.textContent = savedCurrentValue;
     }
 
-    // Atualizar a lista secundária ao carregar a página
     if (secondaryList.length > 0) {
         updateSecondaryList();
     }
 
-    // Salvar o valor atual no localStorage quando ele mudar
     const observer = new MutationObserver(() => {
         localStorage.setItem('currentValue', currentValueElement.textContent);
     });
     observer.observe(currentValueElement, { childList: true });
-});
 
-/* 
-}
- */
+    document.getElementById("conferir").addEventListener("click", function () {
+        container.style.display = 'none';
+        input.style.display = 'none';
+        numbersContainer.style.display = 'flex';
+        geral.style.justifyContent = 'center'
+        geral.style.alignItems = 'center'
+        fechar.style.display = 'block'
+
+
+        const numbers = secondaryList.map(value => {
+            const parts = value.split(' ');
+            return { category: parts[0], number: parseInt(parts[1], 10) };
+        });
+
+        const sortedNumbers = numbers.sort((a, b) => a.number - b.number);
+
+        const letters = ["B", "I", "N", "G", "O"];
+        const numbersContainer = document.getElementById('numbersContainer');
+        numbersContainer.innerHTML = '';
+
+        letters.forEach(letter => {
+            const itemsForLetter = sortedNumbers.filter(item => item.category === letter);
+            if (itemsForLetter.length > 0) {
+                const numberDiv = document.createElement('div');
+                numberDiv.className = 'number-box';
+                numberDiv.textContent = `${letter} ${itemsForLetter[0].number}`;
+                numbersContainer.appendChild(numberDiv);
+            }
+        });
+    });
+        });
