@@ -57,8 +57,12 @@ body {
     color: white;
 }
 
+span{
+  font-family: "Roboto", sans-serif;
+}
+
 .geral {
-    font-family: sans-serif;
+    font-family: "Cookie", cursive;
     display: flex;
     justify-content: center;
     align-items: center;
