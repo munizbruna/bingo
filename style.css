@@ -73,15 +73,18 @@ span{
 
 h1 {
     font-size: 120px;
+    font-family: "Cookie", cursive;
 }
 
 h2 {
     font-size: 62px;
+    font-family: "Cookie", cursive;
 }
 
 h3 {
     display: none;
     padding: 20px;
+    font-family: "Cookie", cursive;
 
 }
 
