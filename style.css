@@ -57,8 +57,14 @@ body {
     color: white;
 }
 
+span{
+  font-family: "Roboto", sans-serif;
+    font-size: 54px;
+}
+
 .geral {
-    font-family: "Roboto", sans-serif;    display: flex;
+    font-family: "Cookie", cursive;
+    display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
@@ -66,27 +72,20 @@ body {
 }
 
 h1 {
-    font-family: "Cookie", cursive;
-    font-size: 64px;
+    font-size: 120px;
 }
 
 h2 {
-    font-family: "Cookie", cursive;
-    font-size: 32px;
+    font-size: 62px;
 }
 
 h3 {
-    font-family: "Cookie", cursive;
     display: none;
     padding: 20px;
-}
 
-span{
-     font-family: "Roboto", sans-serif;
 }
 
 header {
-    height: 12vh;
     color: white;
     display: flex;
     justify-content: space-around;
